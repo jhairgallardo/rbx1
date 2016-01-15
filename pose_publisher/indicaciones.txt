@@ -1,0 +1,37 @@
+Para poder usar el nodo de pose_publisher se debe descargarlo siguiente
+
+(Antes se debe instalar todo lo que dice en el archivo rbx1-prereq.sh de https://github.com/jhairgallardo/rbx1.git)
+
+Luego de instalar los prerequisitos, clonar el metapaquete
+
+cd ~/catkin_ws/src
+git clone https://github.com/jhairgallardo/rbx1.git
+cd rbx1
+git checkout indigo-devel
+cd ~/catkin_ws
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+
+Ese repositorio contiene el paquete pose_publisher para publicar los datos de
+x y theta a partir del tópico de odometría del laser "scanmatch_odom".
+
+Para poder ejecutar se hace lo siguiente
+Primero el source
+
+cd catkin_ws
+source devel/setup.bash
+
+Luego 
+roscore
+
+en otro terminal
+cd catkin_ws/pose_publisher
+roslaunch hector_mapping.launch
+
+en otro terminal
+cd catkin_ws/pose_publisher/nodes
+python pose_publisher.py
+
+Esto hace que los datos de x y theta se publique en el tópico "pose_xythata".
+Luego se debe suscribir a ese tópico con el arduino y extraer la data.
+
