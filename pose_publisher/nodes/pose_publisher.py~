@@ -21,6 +21,6 @@ def odometryCb(msg):
     
 
 if __name__ == "__main__":
-    rospy.init_node('pose_publisher', anonymous=False) #make node
+    rospy.init_node('pose_publisher', anonymous=True) #make node
     rospy.Subscriber('odom',Odometry,odometryCb) #scanmatch_odom for laser odometry 
     rospy.spin()

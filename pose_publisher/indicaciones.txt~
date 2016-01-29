@@ -32,6 +32,6 @@ en otro terminal
 cd catkin_ws/pose_publisher/nodes
 python pose_publisher.py
 
-Esto hace que los datos de x y theta se publique en el tópico "pose_xytheta".
+Esto hace que los datos de x y theta se publique en el tópico "pose_xythata".
 Luego se debe suscribir a ese tópico con el arduino y extraer la data.
 
