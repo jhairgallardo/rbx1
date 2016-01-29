@@ -12,8 +12,13 @@ cd ~/catkin_ws
 catkin_make
 source ~/catkin_ws/devel/setup.bash
 
-Ese repositorio contiene el paquete pose_publisher para publicar los datos de
-x y theta a partir del tópico de odometría del laser "scanmatch_odom".
+Ese repositorio contiene el paquete pose_publisher . Tiene un archivo llamado "pose_publisher.py" que sirve para publicar los datos de
+x y theta a partir del tópico de odometría del laser "scanmatch_odom" o de cualquier tópico 'odom' solo cambiando el nombre del tópico.
+
+También contiene el archivo "move_base_send_goal.py" que es un nodo que se suscribe al topico "batery_low" y publica un punto de llegada al robot. El punto que publica es el punto de inicio para que el robot regrese en caso que la batería este baja.
+
+
+
 
 Para poder ejecutar se hace lo siguiente
 Primero el source
@@ -32,6 +37,6 @@ en otro terminal
 cd catkin_ws/pose_publisher/nodes
 python pose_publisher.py
 
-Esto hace que los datos de x y theta se publique en el tópico "pose_xythata".
+Esto hace que los datos de x y theta se publique en el tópico "pose_xytheta".
 Luego se debe suscribir a ese tópico con el arduino y extraer la data.
 
